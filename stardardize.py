@@ -136,5 +136,6 @@ if __name__ == "__main__":
     extracted_clauses = extract_clauses(text)
 
     result = standardize_clauses(extracted_clauses)
+    print(result)
 
     
