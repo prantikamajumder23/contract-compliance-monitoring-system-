@@ -8,7 +8,7 @@ def read_text(path):
         return f.read()
 
 def remove_markers(text):
-    text=re.sub(r"Page\s+\d+\s+ of\d+","",text,flags=re.IGNORECASE)
+    text=re.sub(r"Page\s+\d+\s*of\s*\d+","",text,flags=re.IGNORECASE)
     return text
 def normalize_spaces(text) :
     text=re.sub(r"[ \t]+"," ",text)
@@ -22,6 +22,10 @@ def clean_text(text):
     text=normalize_line(text)
     text=text.strip()
     return text
+def fix_broken_words(path):
+    text = re.sub(r"-\s*\n\s*", "", text)
+    return text
+    
 def save(path,text):
     with open(path,"w",encoding="utf-8") as f:
         f.write(text)
