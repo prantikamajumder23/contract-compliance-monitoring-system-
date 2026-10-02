@@ -1,6 +1,10 @@
 from pathlib import Path
 import re
-clean = Path(r"C:\Users\Puspita\OneDrive\Documents\Desktop\contract compliance\data\processed\cleaned\CARE--Standard_Goods-Vendor-Agreement_clean.txt")
+import json
+BASE_DIR = Path(r"C:\Users\Puspita\OneDrive\Documents\Desktop\contract compliance")
+
+CLEANED_DIR = BASE_DIR / "data" / "processed" / "cleaned"
+STANDARDIZED_DIR = BASE_DIR / "data" / "processed" / "standard"
 def read_text(path):
     with open(path,"r",encoding="utf-8")as f :
         return f.read()
@@ -131,10 +135,19 @@ def standardize_clauses(extracted_clauses):
 
 if __name__ == "__main__":
 
-    text = read_text(clean)
-
-    extracted_clauses = extract_clauses(text)
-
-    result = standardize_clauses(extracted_clauses)
-
+         STANDARDIZED_DIR.mkdir(parents=True, exist_ok=True)
     
+         for clean_file in CLEANED_DIR.glob("*_clean.txt"):
+   
+            text = read_text(clean_file)
+   
+            extracted_clauses = extract_clauses(text)
+   
+            result = standardize_clauses(extracted_clauses)
+   
+            output_file = STANDARDIZED_DIR / (clean_file.stem.replace("_clean", "_standard") + ".json" )
+   
+            with open(output_file, "w", encoding="utf-8") as f:
+               json.dump(result, f, indent=4, ensure_ascii=False)
+   
+            print(f"Created: {output_file.name}")
