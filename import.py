@@ -42,10 +42,9 @@ def extract_pdf(pdf_path):
 
 if pdf_validate(pdf_path):
   text = extract_pdf(pdf_path)
-  print("Characters extracted:", len(text))
-  print("\nExtracted Text:\n")
-  print(text[:2000])
-  print("Characters extracted:", len(text))
+ 
+  
+ 
   output = r"C:\Users\Puspita\OneDrive\Documents\Desktop\contract compliance\data\processed\CARE--Standard_Goods-Vendor-Agreement.txt"
   with open(output,"w",encoding="utf-8") as f:
     print("Characters extracted:", len(text))
