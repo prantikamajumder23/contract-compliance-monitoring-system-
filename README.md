@@ -1,107 +1,131 @@
-# Contract Compliance Monitoring System
+# Contract Compliance Monitoring System — V1
 
-An AI-powered contract compliance monitoring system that extracts, analyzes, and validates contractual clauses against predefined compliance rules.
+A Python-based **contract compliance monitoring system** that extracts clauses from PDF contracts, standardizes them, checks them against predefined compliance rules, and calculates a risk score.
 
-The project is being developed in stages, starting with a rule-based contract compliance system and later integrating RAG and a vector database for intelligent document retrieval and explanations.
+## 🔍 Workflow
 
-## 🎯 Project Goal
-
-The goal of this project is to build a system that can:
-
-- Extract text from contract PDFs
-- Identify important contractual clauses
-- Detect missing or incomplete clauses
-- Extract important values such as dates, payment periods, and notice periods
-- Compare contract terms against predefined compliance rules
-- Detect potential inconsistencies and conflicts
-- Generate a compliance report
-- Later use RAG and a vector database to retrieve relevant contract sections and explain compliance decisions
-
-## 🏗️ Planned Architecture
-
-PDF Contract
-↓
-PDF Validation
-↓
+```text
+Contract PDF
+     ↓
 Text Extraction
-↓
-Text Preprocessing
-↓
-Clause Identification
-↓
-Information Extraction
-↓
-Compliance Rule Engine
-↓
-Compliance Report
-↓
-RAG + Vector Database
-↓
-Intelligent Compliance Explanation
+     ↓
+Cleaning & Preprocessing
+     ↓
+Clause Extraction
+     ↓
+Clause Standardization
+     ↓
+Compliance Checking
+     ↓
+Risk Scoring
+```
 
-## 📌 Current Progress
+## ✨ Features
 
-### Phase 1 — PDF Ingestion
-- [x] PDF validation
-- [x] PDF page detection
-- [x] Page-by-page text extraction
-- [x] Extracted text storage
+* Extracts text from contract PDFs
+* Cleans and preprocesses contract text
+* Identifies important contractual clauses
+* Standardizes clauses into predefined categories
+* Performs rule-based compliance checking
+* Classifies clauses as `PASS`, `REVIEW`, or `FAIL`
+* Calculates an overall contract risk score
 
-### Phase 2 — Text Processing
-- [ ] Text preprocessing
-- [ ] Remove extraction artifacts
-- [ ] Normalize whitespace
-- [ ] Preserve clause structure
+### Supported Clauses
 
-### Phase 3 — Contract Analysis
-- [ ] Clause identification
-- [ ] Key information extraction
-- [ ] Missing clause detection
-- [ ] Inconsistency detection
+* Payment Terms
+* Termination
+* Confidentiality
+* Intellectual Property
+* Liability
+* Force Majeure
+* Governing Law
+* Dispute Resolution
+* Scope of Work
+* Renewal
 
-### Phase 4 — Compliance Engine
-- [ ] Define compliance rules
-- [ ] Compare contract terms against rules
-- [ ] Generate compliance status
-- [ ] Generate compliance report
+### Risk Scoring
 
-### Phase 5 — RAG & Vector Database
-- [ ] Document chunking
-- [ ] Generate embeddings
-- [ ] Set up vector database
-- [ ] Implement semantic search
-- [ ] Build RAG pipeline
-- [ ] Generate evidence-based explanations
+| Status | Weight |
+| ------ | -----: |
+| PASS   |      0 |
+| REVIEW |      5 |
+| FAIL   |     15 |
 
-## 🛠️ Technologies
+## 🛠️ Tech Stack
 
-Currently:
-- Python
-- PyPDF
-- Regular Expressions
-
-Planned:
-- Pandas
-- Embeddings
-- Vector Database
-- RAG
-- LangChain
-- LLM
-- Streamlit
+* Python
+* Pandas
+* Regular Expressions
+* PDF Text Extraction
+* JSON
+* Git & GitHub
 
 ## 📂 Project Structure
 
 ```text
-contract-compliance-monitoring-system/
+contract-compliance/
 │
 ├── data/
-│   ├── contracts/
-│   └── processed/
+│   ├── raw/
+│   ├── processed/
+│   └── cleaned/
 │
-├── src/
+├── extract.py
+├── clean.py
+├── clause_extraction.py
+├── standardize.py
+├── compliance.py
+├── risk_score.py
 │
-├── tests/
-│
-├── import.py
-├── README.md
-└── .gitignore
+├── requirements.txt
+└── README.md
+```
+
+## ▶️ Running the Project
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Place the contract PDF inside:
+
+```text
+data/raw/
+```
+
+Run the pipeline:
+
+```bash
+python extract.py
+python clean.py
+python clause_extraction.py
+python standardize.py
+python compliance.py
+python risk_score.py
+```
+
+## 📊 Example Output
+
+```text
+Payment Terms       → PASS
+Confidentiality     → FAIL
+Liability           → REVIEW
+Termination         → PASS
+
+Risk Score: 20
+```
+
+## 🚀 Future Development
+
+**V2:** RAG, embeddings, vector database, and semantic search.
+
+**V3:** AI-powered compliance explanations, contract comparison, dashboard, and cloud deployment.
+
+## 📌 Status
+
+**Version:** V1
+**Status:** ✅ Completed
+
+This project is built for educational and portfolio purposes.
