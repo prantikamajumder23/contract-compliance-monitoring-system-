@@ -104,7 +104,7 @@ python clause_extraction.py
 python standardize.py
 python compliance.py
 python risk_score.py
-```
+```      
 
 ## 📊 Example Output
 
@@ -127,6 +127,8 @@ Risk Score: 20
 
 **Version:** V1
 **Status:** ✅ Completed
+
+
 
 This project is built for educational and portfolio purposes.
 
