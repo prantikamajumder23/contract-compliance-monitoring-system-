@@ -43,6 +43,8 @@ Risk Scoring
 * Scope of Work
 * Renewal
 
+  
+
 ### Risk Scoring
 
 | Status | Weight |
