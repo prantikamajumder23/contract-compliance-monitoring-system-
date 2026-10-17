@@ -1,4 +1,4 @@
-# Contract Compliance Monitoring System — V1
+ # Contract Compliance Monitoring System — V1
 
 A Python-based **contract compliance monitoring system** that extracts clauses from PDF contracts, standardizes them, checks them against predefined compliance rules, and calculates a risk score.
 
