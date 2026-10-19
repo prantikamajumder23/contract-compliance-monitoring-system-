@@ -18,6 +18,8 @@ Clause Standardization
 Compliance Checking
      ↓
 Risk Scoring
+
+
 ```
 
 ## ✨ Features
